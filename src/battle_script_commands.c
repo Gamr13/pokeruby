@@ -5345,6 +5345,7 @@ static void atk5A_yesnoboxlearnmove(void)
             else
             {
                 u16 move = GetMonData(&gPlayerParty[gBattleStruct->expGetterMonId], MON_DATA_MOVE1 + move_pos);
+                /*
                 if (IsHMMove2(move))
                 {
                     PrepareStringBattle(0x13F, gActiveBattler);
@@ -5355,6 +5356,8 @@ static void atk5A_yesnoboxlearnmove(void)
                     u8 *ptr;
 
                     gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 1);
+                */
+                gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 1);
                     ptr = gBattleTextBuff2;
                     {
                         ptr[0] = 0xFD;
@@ -5364,6 +5367,7 @@ static void atk5A_yesnoboxlearnmove(void)
                         ptr += 4;
                     }
                     ptr[0] = 0xFF;
+                    PREPARE_MOVE_BUFFER(gBattleTextBuff2, moveId)
                     RemoveMonPPBonus(&gPlayerParty[gBattleStruct->expGetterMonId], move_pos);
                     SetMonMoveSlot(&gPlayerParty[gBattleStruct->expGetterMonId], gMoveToLearn, move_pos);
                     if (gBattlerPartyIndexes[0] == gBattleStruct->expGetterMonId && !(gBattleMons[0].status2 & STATUS2_TRANSFORMED)
