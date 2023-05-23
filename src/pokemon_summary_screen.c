@@ -1002,6 +1002,7 @@ static void sub_809E260(u8 taskId)
     }
     else if (gMain.newKeys & A_BUTTON)
     {
+        /*
         if (SummaryScreen_CanForgetSelectedMove(taskId) == TRUE || pssData.selectedMoveIndex == 4)
         {
             pssData.switchMoveIndex = pssData.selectedMoveIndex;
@@ -1013,6 +1014,10 @@ static void sub_809E260(u8 taskId)
             PlaySE(SE_FAILURE);
             sub_809F9D0(taskId, pssData.selectedMoveIndex);
         }
+        */
+        pssData.switchMoveIndex = pssData.selectedMoveIndex;
+        gSpecialVar_0x8005 = pssData.switchMoveIndex;
+        SummaryScreenExit(taskId);
     }
     else if (gMain.newKeys & B_BUTTON)
     {

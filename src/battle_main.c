@@ -167,6 +167,7 @@ extern u8 gNumSafariBalls;
 extern u8 gUnknown_081FA70C[][3];
 extern u8 gUnknown_081FA71B[];
 extern u8 gUnknown_081FA71F[];
+extern void PartyAutoHeal(void);
 struct BattleResults gBattleResults;
 
 void BattleMainCB1(void);
@@ -5027,6 +5028,7 @@ void HandleEndTurn_MonFled(void)
 
 void HandleEndTurn_FinishBattle(void)
 {
+    PartyAutoHeal();
     if (gCurrentActionFuncId == 0xB || gCurrentActionFuncId == 0xC)
     {
         if (!(gBattleTypeFlags & (BATTLE_TYPE_LINK
